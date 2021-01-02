@@ -20,6 +20,17 @@ function Book(name, author, pages) {
   };
 }
 
+function addBookToLibrary(newBook) {
+  myLibrary.push(newBook);
+}
+
 const theHobbit = new Book("The Hobbit", "J.R. Tolkein", 498);
+const antiracist = new Book("How to be an Antiracist", "Ibram X. Kendi", 280);
 
 theHobbit.info();
+antiracist.info();
+
+addBookToLibrary(theHobbit);
+addBookToLibrary(antiracist);
+
+console.log(myLibrary);

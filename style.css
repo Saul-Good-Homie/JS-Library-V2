@@ -6,6 +6,10 @@ html {
   font-family: "Arimo", sans-serif;
 }
 
+body {
+  background-color: #f1faee;
+}
+
 *,
 *:before,
 *:after {
@@ -43,4 +47,139 @@ a {
 
 a.hover {
   text-decoration: underline;
+}
+
+/* start of site specific styles */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 25vh;
+  border-bottom: 2px solid black;
+  padding-top: 20px;
+  padding-bottom: 3px;
+  background: #457b9d;
+}
+
+h1 {
+  color: #f1faee;
+  font-size: 56px;
+}
+
+.add-new {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 90%;
+  align-items: end;
+}
+
+.new-book {
+  background-color: #e63946;
+  border-radius: 28px;
+  border: 1px solid #e63946;
+  display: inline-block;
+  cursor: pointer;
+  color: #f1faee;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgb(240, 46, 62);
+}
+.new-book:hover {
+  background-color: rgb(240, 72, 86);
+}
+.new-book:active {
+  position: relative;
+  top: 1px;
+}
+
+/* start of book area */
+
+.book-shelf {
+  background-color: #f1faee;
+  min-height: 75vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.book-card {
+  border: 3px solid #a8dadc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 300px;
+  min-height: 300px;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #1d3557;
+}
+
+.top-container {
+  background-color: #457b9d;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.book-title,
+.book-author,
+.book-pages,
+.book-read {
+  text-align: center;
+  margin: auto;
+  color: #f1faee;
+}
+
+.book-title {
+  flex-grow: 1.5;
+  font-size: 24px;
+}
+
+.book-author {
+  font-size: 16px;
+}
+
+/* footer section */
+footer {
+  left: 0;
+  bottom: 0;
+  padding-bottom: 3px;
+  width: 100%;
+  text-align: center;
+  background-color: #f1faee;
+}
+
+footer a:link {
+  /* color: white;
+  background-color: #e63946; */
+  background-color: #e63946;
+  border-radius: 28px;
+  border: 1px solid #e63946;
+  display: inline-block;
+  cursor: pointer;
+  color: #f1faee;
+  /* font-size: 17px; */
+  padding: 2px 8px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgb(240, 46, 62);
+}
+
+footer a:visited {
+  text-decoration: none;
+  color: #f1faee;
+}
+
+/* mouse over link */
+footer a:hover {
+  background-color: rgb(240, 72, 86);
 }
