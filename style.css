@@ -99,7 +99,7 @@ h1 {
 
 /* start of book area */
 
-.book-shelf {
+#book-shelf {
   background-color: #f1faee;
   min-height: 75vh;
   display: flex;
@@ -122,6 +122,7 @@ h1 {
   padding: 5px;
   margin-left: 5px;
   margin-right: 5px;
+  margin-top: 5px;
   background-color: #1d3557;
 }
 
