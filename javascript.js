@@ -71,6 +71,15 @@ const displayBookShelf = function (novel) {
   bookShelf.appendChild(book);
 };
 
+// Javascript to open and close form pop up
+function openForm() {
+  document.getElementById("popup-form").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("popup-form").style.display = "none";
+}
+
 // Start of formula's in action
 const theHobbit = new Book("The Hobbit", "J.R. Tolkein", 498);
 const antiracist = new Book("How to be an Antiracist", "Ibram X. Kendi", 280);

@@ -150,6 +150,67 @@ h1 {
   font-size: 16px;
 }
 
+/* Popup Form section */
+
+.popup-form {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #a8dadc;
+  padding: 1%;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+}
+
+fieldset {
+  border: 0;
+}
+.submit-buttons {
+  display: flex;
+}
+
+/* Full-width input fields */
+.popup input[type="text"],
+.popup input[type="number"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.popup input[type="text"]:focus,
+.popup input[type="number"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.popup .btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.popup .cancel {
+  background-color: #e63946;
+}
+
+/* Add some hover effects to buttons */
+.popup .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
 /* footer section */
 footer {
   left: 0;
