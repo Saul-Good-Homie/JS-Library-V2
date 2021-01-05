@@ -7,17 +7,9 @@ function Book(name, author, pages) {
 
   this.read = false;
 
-  this.info = function () {
-    console.log(
-      this.name +
-        " by " +
-        this.author +
-        ", " +
-        this.pages +
-        " pages " +
-        this.read
-    );
-  };
+  this.info = console.log(
+    this.name + " by " + this.author + ", " + this.pages + " pages " + this.read
+  );
 }
 
 function addBookToLibrary(newBook) {
@@ -79,6 +71,27 @@ function openForm() {
 function closeForm() {
   document.getElementById("popup-form").style.display = "none";
 }
+// function to clear form inputs
+function clearForm() {
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("pages").value = "";
+}
+
+// Javascript to turn form inputs into js object
+
+function submitForm() {
+  name = document.getElementById("title").value;
+  author = document.getElementById("author").value;
+  pages = document.getElementById("pages").value;
+
+  let newBook = new Book(name, author, pages);
+  addBookToLibrary(newBook);
+
+  displayBookShelf(newBook);
+  clearForm();
+  closeForm();
+}
 
 // Start of formula's in action
 const theHobbit = new Book("The Hobbit", "J.R. Tolkein", 498);
@@ -88,7 +101,5 @@ const mediocre = new Book("Mediocre", "Ileoma Olou", 306);
 addBookToLibrary(theHobbit);
 addBookToLibrary(antiracist);
 addBookToLibrary(mediocre);
-
-console.log(myLibrary);
 
 myLibrary.forEach(displayBookShelf);
