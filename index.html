@@ -41,7 +41,16 @@
         </div>
         <div class="bottom-container">
           <div class="book-pages">493 pages</div>
-          <div class="book-read">Y/N</div>
+          <div class="book-footer">
+            <button
+              id="delete-button"
+              class="delete-button"
+              onclick="deleteBook(event)"
+            >
+              Delete
+            </button>
+            <button id="is-read" class="is-not-read">Not Read</button>
+          </div>
         </div>
       </div>
     </section>
@@ -57,7 +66,7 @@
         <label for="pages">Page count:</label><br />
         <input type="number" id="pages" name="pages" min="1" /><br />
         <fieldset class="submit-buttons">
-          <button type="submit" class="btn cancel" onclick="closeForm()">
+          <button type="button" class="btn cancel" onclick="closeForm()">
             Cancel
           </button>
           <button type="button" class="btn" onclick="submitForm()">

@@ -1,19 +1,34 @@
 let myLibrary = [];
+let bookCount = 0;
 
 function Book(name, author, pages) {
   this.name = name;
   this.author = author;
   this.pages = pages;
-
   this.read = false;
+  this.bookID = "ID-" + bookCount++;
 
   this.info = console.log(
-    this.name + " by " + this.author + ", " + this.pages + " pages " + this.read
+    this.name +
+      " by " +
+      this.author +
+      ", " +
+      this.pages +
+      " pages " +
+      this.read +
+      "this book id is " +
+      this.bookID
   );
 }
 
+// add book
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
+}
+
+// remove book
+function removeFromLibrary(bookID) {
+  myLibrary = myLibrary.filter((novel) => novel.bookID !== bookID);
 }
 
 // Function to display all books on the web page
@@ -24,6 +39,7 @@ const displayBookShelf = function (novel) {
   const bookShelf = document.querySelector("#book-shelf");
   const book = document.createElement("div");
   book.classList.add("book-card");
+  book.id = novel.bookID;
 
   // create the top section
   const topSection = document.createElement("div");
@@ -53,11 +69,25 @@ const displayBookShelf = function (novel) {
   pages.textContent = novel.pages + " pages";
   bottomSection.appendChild(pages);
 
+  // create book footer section
+  const footer = document.createElement("div");
+  footer.classList.add("book-footer");
+  bottomSection.appendChild(footer);
+
+  // create delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-button");
+  deleteButton.textContent = "Delete";
+  deleteButton.onclick = function () {
+    deleteBook(event);
+  };
+  footer.appendChild(deleteButton);
+
   // create read Y/N section
-  const read = document.createElement("div");
-  read.classList.add("book-read");
-  read.textContent = novel.read;
-  bottomSection.appendChild(read);
+  const read = document.createElement("button");
+  read.classList.add("is-not-read");
+  read.textContent = "Not yet read";
+  footer.appendChild(read);
 
   // add book to bookShelf
   bookShelf.appendChild(book);
@@ -78,8 +108,26 @@ function clearForm() {
   document.getElementById("pages").value = "";
 }
 
-// Javascript to turn form inputs into js object
+// // function to mark book as read
+// function readBook(event) {
+//   //   let button = document.getElementById("is-read");
+//   let button = event.target;
+//   button.textContent = "Read";
+//   button.classList.remove("is-not-read");
+//   button.classList.add("is-read");
+//   console.log("book read");
+// }
 
+// delete book
+function deleteBook(e) {
+  let bookID = e.target.parentNode.parentNode.parentNode.id;
+  let book = document.getElementById(bookID);
+  removeFromLibrary(bookID);
+  book.remove();
+  console.log("book sucessfully deleted");
+}
+
+// Javascript to turn form inputs into js object
 function submitForm() {
   name = document.getElementById("title").value;
   author = document.getElementById("author").value;
