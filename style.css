@@ -103,10 +103,9 @@ h1 {
   background-color: #f1faee;
   min-height: 75vh;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 5px;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 .book-card {
@@ -197,7 +196,7 @@ h1 {
 }
 
 .is-read:hover {
-  background-color: rgb(79, 238, 58);
+  background-color: rgb(38, 165, 22);
 }
 
 .is-not-read {

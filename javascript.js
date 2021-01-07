@@ -16,7 +16,7 @@ function Book(name, author, pages) {
       this.pages +
       " pages " +
       this.read +
-      "this book id is " +
+      " this book id is " +
       this.bookID
   );
 }
@@ -86,7 +86,10 @@ const displayBookShelf = function (novel) {
   // create read Y/N section
   const read = document.createElement("button");
   read.classList.add("is-not-read");
-  read.textContent = "Not yet read";
+  read.textContent = "Mark as read?";
+  read.onclick = function () {
+    readBook(event);
+  };
   footer.appendChild(read);
 
   // add book to bookShelf
@@ -108,8 +111,23 @@ function clearForm() {
   document.getElementById("pages").value = "";
 }
 
-// // function to mark book as read
-// function readBook(event) {
+// function to mark book as read
+function readBook(e) {
+  let bookID = e.target.parentNode.parentNode.parentNode.id;
+
+  let book = myLibrary.find((novel) => novel.bookID == bookID);
+  if (book.read == false) {
+    book.read = true;
+    e.target.textContent = "Book Read!";
+    e.target.classList.remove("is-not-read");
+    e.target.classList.add("is-read");
+  } else {
+    book.read = false;
+    e.target.textContent = "Mark as read?";
+    e.target.classList.remove("is-read");
+    e.target.classList.add("is-not-read");
+  }
+}
 //   //   let button = document.getElementById("is-read");
 //   let button = event.target;
 //   button.textContent = "Read";
