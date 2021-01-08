@@ -72,7 +72,7 @@ h1 {
 .add-new {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   width: 90%;
   align-items: end;
 }
