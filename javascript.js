@@ -24,11 +24,13 @@ function Book(name, author, pages) {
 // add book
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
+  saveLocal();
 }
 
 // remove book
 function removeFromLibrary(bookID) {
   myLibrary = myLibrary.filter((novel) => novel.bookID !== bookID);
+  saveLocal();
 }
 
 // Function to display all books on the web page
@@ -85,8 +87,13 @@ const displayBookShelf = function (novel) {
 
   // create read Y/N section
   const read = document.createElement("button");
-  read.classList.add("is-not-read");
-  read.textContent = "Mark as read?";
+  if (novel.read == false) {
+    read.classList.add("is-not-read");
+    read.textContent = "Mark as read?";
+  } else {
+    read.classList.add("is-read");
+    read.textContent = "Book Read!";
+  }
   read.onclick = function () {
     readBook(event);
   };
@@ -127,14 +134,8 @@ function readBook(e) {
     e.target.classList.remove("is-read");
     e.target.classList.add("is-not-read");
   }
+  saveLocal();
 }
-//   //   let button = document.getElementById("is-read");
-//   let button = event.target;
-//   button.textContent = "Read";
-//   button.classList.remove("is-not-read");
-//   button.classList.add("is-read");
-//   console.log("book read");
-// }
 
 // delete book
 function deleteBook(e) {
@@ -142,6 +143,7 @@ function deleteBook(e) {
   let book = document.getElementById(bookID);
   removeFromLibrary(bookID);
   book.remove();
+  saveLocal();
   console.log("book sucessfully deleted");
 }
 
@@ -159,13 +161,31 @@ function submitForm() {
   closeForm();
 }
 
+// LOCAL STORAGE
+
+function saveLocal() {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  localStorage.setItem("bookCount", JSON.stringify(bookCount));
+}
+
+function restoreLocal() {
+  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+  bookCount = JSON.parse(localStorage.getItem("bookCount"));
+  if (myLibrary === null) myLibrary = [];
+  myLibrary.forEach(displayBookShelf);
+}
+
+restoreLocal();
+
 // Start of formula's in action
-const theHobbit = new Book("The Hobbit", "J.R. Tolkein", 498);
-const antiracist = new Book("How to be an Antiracist", "Ibram X. Kendi", 280);
-const mediocre = new Book("Mediocre", "Ileoma Olou", 306);
+// const theHobbit = new Book("The Hobbit", "J.R. Tolkein", 498);
+// const antiracist = new Book("How to be an Antiracist", "Ibram X. Kendi", 280);
+// const mediocre = new Book("Mediocre", "Ileoma Olou", 306);
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(antiracist);
-addBookToLibrary(mediocre);
+// addBookToLibrary(theHobbit);
+// addBookToLibrary(antiracist);
+// addBookToLibrary(mediocre);
 
-myLibrary.forEach(displayBookShelf);
+// console.log(myLibrary);
+
+// myLibrary.forEach(displayBookShelf);
