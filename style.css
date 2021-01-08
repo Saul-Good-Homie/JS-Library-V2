@@ -81,7 +81,7 @@ h1 {
   background-color: #e63946;
   border-radius: 28px;
   border: 1px solid #e63946;
-  display: inline-block;
+  /* display: inline-block; */
   cursor: pointer;
   color: #f1faee;
   font-size: 17px;
@@ -279,6 +279,7 @@ fieldset {
 }
 /* footer section */
 footer {
+  position: fixed;
   left: 0;
   bottom: 0;
   padding-bottom: 3px;
